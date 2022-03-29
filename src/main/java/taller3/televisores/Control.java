@@ -2,7 +2,7 @@ package taller3.televisores;
 
 public class Control {
 	TV tv;
-	
+
 	// - Getters and Setters -
 	
 	public TV getTv() {
@@ -67,7 +67,9 @@ public class Control {
 	}
 	
 	public void enlazar(TV tvEnlazado) {
+		Control controlEnlazado = this;
 		this.tv = tvEnlazado;
+		tv.setControl(controlEnlazado);
 	}
-	
+
 }
