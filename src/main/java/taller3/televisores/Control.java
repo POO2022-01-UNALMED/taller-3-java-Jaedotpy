@@ -1,34 +1,73 @@
 package taller3.televisores;
 
-public class testTV {
-	public static void main(String[] args) {	    
-		Marca marca =  new Marca("Semsung");
-		TV tv1 =  new TV(marca, true);
-		
-		tv1.setCanal(100);
-		tv1.canalDown();
-		
-		TV tv2 =  new TV(marca, false);
-		Control control =  new Control();
-		control.enlazar(tv2);
-		control.setCanal(50);
-		control.turnOn();
-		control.canalUp();
-		
-		TV tv3 =  new TV(marca, false);
-		tv2.setCanal(121);
-		
-		boolean ok = false;
-		
-		if(tv1.getCanal() == 99 && tv2.getCanal() == 2 && tv3.getCanal() == 1) {
-			ok = true;
+public class Control {
+	TV tv;
+	
+	// - Getters and Setters -
+	
+	public TV getTv() {
+		return tv;
+	}
+
+	public void setTv(TV tv) {
+		this.tv = tv;
+	}
+
+	// - Methods - 
+	
+	public void turnOn(){
+		tv.estado = true;
+	}
+	
+	public void turnOff() {
+		tv.estado = false;
+	}
+	
+	public void canalUp(){
+		if (tv.estado = true) {
+			if(tv.canal != 120 && tv.canal >= 1) {
+				tv.canal  = tv.canal + 1;
+			}			
+		}		
+	}
+	
+	public void canalDown(){
+		if (tv.estado = true) {
+			if(tv.canal != 1 && tv.canal <= 120) {
+				tv.canal  = tv.canal - 1;
+			}			
+		}		
+	}
+	
+	public void volumenUp() {
+		if (tv.estado = true) {
+			if(tv.volumen != 7 && tv.volumen >= 1) {
+				tv.volumen  = tv.volumen + 1;
+			}			
+		}		
+	}
+	
+	public void volumenDown() {
+		if (tv.estado = true) {
+			if(tv.volumen != 1 && tv.volumen <= 7) {
+				tv.volumen  = tv.volumen - 1;
+			}			
+		}		
+	}
+	
+	public void setCanal(int canal) {
+		if (tv.estado = true) {
+			if (canal <= 120 && canal >= 1) {
+				tv.canal = canal;
+			}
+			else if(canal > 120){
+				tv.canal = 2;
+			}
 		}
-		if (ok = true){
-			System.out.print("Hay un problema con los metodos y restricciones del cambio de canales del televisor");
-		}
-		else {
-			System.out.print("no");
-		}
+	}
+	
+	public void enlazar(TV tvEnlazado) {
+		this.tv = tvEnlazado;
 	}
 	
 }
