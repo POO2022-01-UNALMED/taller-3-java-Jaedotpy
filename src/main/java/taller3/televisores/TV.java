@@ -6,7 +6,7 @@ public class TV {
 	public boolean estado;
 	public int volumen;
 	private Control control;
-	private int numTV = 0;
+	private static int numTV = 0;
 	
 	// - Constructor -
 	
@@ -60,10 +60,10 @@ public class TV {
 	public void setControl(Control control) {
 		this.control = control;
 	}
-	public void setNumTV(int numTV) {
-		this.numTV = numTV;
+	public static void setNumTV(int n) {
+		numTV = n;
 	}
-	public int getNumTV() {
+	public static int getNumTV() {
 		return numTV;
 	}
 	
